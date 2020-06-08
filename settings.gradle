@@ -1,0 +1,2 @@
+rootProject.name='LanaApp'
+include ':app'

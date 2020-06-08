@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LanaApp</string>
+    <string name="title_itemdetail_list">Items</string>
+    <string name="title_itemdetail_detail">ItemDetail Detail</string>
+</resources>
