@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
+    >
+    
+    <data>
+        <variable
+            name="motionData"
+            type="com.archeticture.flora.lanaapp.motion.model.MotionDataView" />
+    </data>
+
+<androidx.constraintlayout.motion.widget.MotionLayout
     android:layout_width="match_parent"
     android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent"
@@ -17,6 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:contentDescription="@string/title_itemdetail_list"
         android:id="@+id/imageView"
         android:layout_width="180dp"
         android:layout_height="180dp"
@@ -35,6 +48,7 @@
         android:textSize="24sp"
         android:textColor="@android:color/white"
         android:textStyle="bold"
+        android:text="@{motionData.headerItem.title}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView"
@@ -47,6 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="18sp"
+        android:text="@{motionData.headerItem.description}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView"
@@ -61,6 +76,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/background"
         tools:itemCount="20"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/motion_item_layout" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

@@ -1,10 +1,11 @@
-package com.archeticture.flora.lanaapp
+package com.archeticture.flora.lanaapp.detailSide
 
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
+import com.archeticture.flora.lanaapp.R
 import kotlinx.android.synthetic.main.activity_itemdetail_detail.*
 
 /**
@@ -40,7 +41,8 @@ class ItemDetailDetailActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            val fragment = ItemDetailDetailFragment().apply {
+            val fragment = ItemDetailDetailFragment()
+                .apply {
                 arguments = Bundle().apply {
                     putString(
                         ItemDetailDetailFragment.ARG_ITEM_ID,
