@@ -9,10 +9,5 @@ import androidx.databinding.BindingAdapter
 
 class MotionItem(val id:String,var name:String?,var date:String?,var img:Bitmap?=null) {
 
-    companion object {
-    @BindingAdapter("bind:imageBitmap")
-    fun loadImage(iv: ImageView, bitmap: Bitmap?) {
-        iv.setImageBitmap(bitmap)
-    }
-}
+
 }

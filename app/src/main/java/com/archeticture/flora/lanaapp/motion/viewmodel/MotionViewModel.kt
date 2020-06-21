@@ -23,8 +23,8 @@ class MotionViewModel(): ViewModel() {
         for (i in 0..88){
             list.add(
                 MotionItem("$i",
-                    "name $i",
-                    "date $i",null)
+                    "name hghjhj$i",
+                    "date $i",BitmapFactory.decodeResource(context.resources,R.drawable.itemnails))
             )
         }
         val motionDataView=MotionDataView(headerItem,list)
