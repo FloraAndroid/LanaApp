@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.archeticture.flora.lanaapp">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -13,7 +15,7 @@
         <activity
             android:name=".detailSide.ItemDetailListActivity"
             android:label="@string/title_itemdetail_list"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".detailSide.ItemDetailDetailActivity"
             android:label="@string/title_itemdetail_detail"
