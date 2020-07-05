@@ -4,64 +4,78 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-  <data>
-    <variable
-        name="motionItem"
-        type="com.archeticture.flora.lanaapp.motion.model.MotionItem" />
-  </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="12dp">
+    <data>
 
-  <androidx.cardview.widget.CardView
-      android:id="@+id/cardMotionItem"
-      android:layout_width="70dp"
-      android:layout_height="70dp"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:cardCornerRadius="37dp"
-      app:cardMaxElevation="37dp"
-      >
+        <variable
+            name="motionItem"
+            type="com.archeticture.flora.lanaapp.motion.model.MotionItem" />
+    </data>
 
-    <ImageView
-        android:contentDescription="@string/title_itemdetail_list"
-        android:id="@+id/imgMotionItem"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        bind:imageBitmap="@{motionItem.img}"
-        android:src="@drawable/general_nails"
-
-
-        />
-  </androidx.cardview.widget.CardView>
-    <TextView
-        android:id="@+id/txtMotionTitle"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@{motionItem.name}"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:gravity="left"
-        android:singleLine="false"
-        tools:text="iiiiiihkjhjkjj"
-        app:layout_constraintLeft_toRightOf="@id/cardMotionItem"
-        app:layout_constraintTop_toTopOf="@id/cardMotionItem" />
+        android:id="@+id/constraintParent"
+        android:padding="12dp">
 
-    <TextView
-        android:id="@+id/txtMotionDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@{motionItem.date}"
-        tools:text="jddjdhdh"
-        android:textSize="30dp"
-        android:textColor="@android:color/black"
-        app:layout_constraintLeft_toRightOf="@id/cardMotionItem"
-        app:layout_constraintTop_toBottomOf="@id/txtMotionTitle"
-        app:layout_constraintBottom_toBottomOf="@id/cardMotionItem"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardMotionItem"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:cardCornerRadius="37dp"
+            app:cardMaxElevation="37dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imgMotionItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/title_itemdetail_list"
+                android:src="@drawable/general_nails"
+                bind:imageBitmap="@{motionItem.img}"
+
+
+                />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtMotionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="5dp"
+            android:singleLine="false"
+            android:text="@{motionItem.name}"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/cardMotionItem"
+            app:layout_constraintTop_toTopOf="@id/cardMotionItem"
+            tools:text="iiiiiihkjhjkjj" />
+
+        <TextView
+            android:id="@+id/txtMotionDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@{motionItem.date}"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/cardMotionItem"
+            app:layout_constraintLeft_toRightOf="@id/cardMotionItem"
+            app:layout_constraintTop_toBottomOf="@id/txtMotionTitle"
+            tools:text="jddjdhdh" />
+
+
+        <ImageButton
+            android:id="@+id/remove_btn_motion"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="10dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_notification_clear_all"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/constraintParent"
+            app:layout_constraintTop_toTopOf="@+id/cardMotionItem" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
