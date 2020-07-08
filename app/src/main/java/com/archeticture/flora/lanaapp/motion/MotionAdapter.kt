@@ -1,12 +1,17 @@
 package com.archeticture.flora.lanaapp.motion
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.archeticture.flora.lanaapp.databinding.MotionItemLayoutBinding
 import com.archeticture.flora.lanaapp.motion.model.MotionItem
 
-class MotionAdapter(var list:ArrayList<MotionItem>?):
+class MotionAdapter(var list:ArrayList<MotionItem>?,val motionItemListener: MotionItemListener?):
     RecyclerView.Adapter<MotionAdapter.ViewHolder>() {
+    val TAG:String=javaClass.name
+    interface MotionItemListener{
+        fun onRemoveItem(position: Int,motionItem: MotionItem?)
+    }
     inner class ViewHolder(val motionItemLayoutBinding:
                            MotionItemLayoutBinding):
         RecyclerView.ViewHolder(motionItemLayoutBinding.root){
@@ -24,6 +29,7 @@ class MotionAdapter(var list:ArrayList<MotionItem>?):
 
         val inflater = LayoutInflater.from(parent.context)
         val binding = MotionItemLayoutBinding.inflate(inflater)
+
         return ViewHolder(binding)
     }
 
@@ -34,19 +40,17 @@ class MotionAdapter(var list:ArrayList<MotionItem>?):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(list?.get(position))
+        holder.motionItemLayoutBinding.removeBtnMotion.setOnClickListener {
+            Log.d(TAG,"position $position")
+            Log.d(TAG,"adapter position ${holder.adapterPosition}")
+            Log.d(TAG,"list Size  ${list?.size}}")
+            Log.d(TAG,"***********")
+            list?.removeAt(holder.adapterPosition)
+            notifyItemRemoved(holder.adapterPosition)
+          //  notifyItemRangeRemoved(holder.adapterPosition,(list?.size)?:0)
+            motionItemListener?.onRemoveItem(position,list?.get(position))
+        }
 
     }
-//    private fun insert(): (View) -> Unit = {
-//        layoutPosition.also { currentPosition ->
-//            list?.add(currentPosition, uniqueString(string))
-//            notifyDataSetChanged()
-//        }
-//    }
-//
-//    private fun remove(): (View) -> Unit = {
-//        layoutPosition.also { currentPosition ->
-//            list?.removeAt(currentPosition)
-//            notifyDataSetChanged()
-//        }
-//    }
+
 }

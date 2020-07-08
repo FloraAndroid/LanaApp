@@ -12,7 +12,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/constraintParent"
         android:padding="12dp">
@@ -24,7 +24,8 @@
             app:cardCornerRadius="37dp"
             app:cardMaxElevation="37dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageView
                 android:id="@+id/imgMotionItem"
@@ -40,7 +41,7 @@
 
         <TextView
             android:id="@+id/txtMotionTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:gravity="start"
             android:padding="5dp"
@@ -54,7 +55,7 @@
 
         <TextView
             android:id="@+id/txtMotionDate"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="@{motionItem.date}"
@@ -66,15 +67,16 @@
             tools:text="jddjdhdh" />
 
 
-        <ImageButton
+        <ImageView
             android:id="@+id/remove_btn_motion"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:padding="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@android:color/transparent"
             android:src="@android:drawable/ic_notification_clear_all"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/constraintParent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/txtMotionDate"
+            app:layout_constraintHorizontal_bias="0.01"
             app:layout_constraintTop_toTopOf="@+id/cardMotionItem" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

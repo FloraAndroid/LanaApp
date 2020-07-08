@@ -14,9 +14,13 @@ class MotionViewModel(): ViewModel() {
     val motionDataLive=MutableLiveData<MotionDataView>()
 
 
-    fun insertItem(motionItem: MotionItem){
 
-        motionDataLive.value?.list?.add(6,motionItem)
+    fun removeItem(motionItem: MotionItem?,position: Int){
+        motionDataLive.value?.list?.removeAt(position)
+    }
+    fun insertItem(motionItem: MotionItem,position:Int){
+
+        motionDataLive.value?.list?.add(position,motionItem)
     }
     //todo integrate with firebase
     fun getMotionData(context: Context){

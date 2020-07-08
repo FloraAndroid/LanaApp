@@ -1,10 +1,9 @@
 package com.archeticture.flora.lanaapp.motion
 
 import android.content.Context
-import android.graphics.drawable.ClipDrawable.HORIZONTAL
 import android.os.Bundle
-import android.os.Handler
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -20,9 +19,10 @@ import com.archeticture.flora.lanaapp.motion.viewmodel.MotionViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class MotionListActvity : AppCompatActivity() {
+class MotionListActvity : AppCompatActivity(),MotionAdapter.MotionItemListener {
 
-
+     var motionViewModel:MotionViewModel?=null
+     var motionAdapter:MotionAdapter?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val motionListActivityBinding:MotionListActivityBinding=
@@ -32,29 +32,35 @@ class MotionListActvity : AppCompatActivity() {
         val recyclerView=findViewById<RecyclerView>(R.id.recyclerView)
         val motionLayoutManager=LinearLayoutManager(this)
         recyclerView.layoutManager=motionLayoutManager
-        val motionAdapter=MotionAdapter(null)
+         motionAdapter=MotionAdapter(null,this)
         recyclerView.adapter=motionAdapter
         val itemDecor = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(itemDecor)
 
-        motionAdapter.notifyDataSetChanged()
+        motionAdapter?.notifyDataSetChanged()
         motionViewModel.motionDataLive.observe(this, Observer {
             motionListActivityBinding.motionData=it
-            motionAdapter.list=it.list
-            motionAdapter.notifyDataSetChanged()
+            motionAdapter?.list=it.list
+            motionAdapter?.notifyDataSetChanged()
+            Log.d("observe","observe items")
 
         })
         val addBtn=findViewById<FloatingActionButton>(R.id.add_btn_motion)
         addBtn.setOnClickListener {
             //todo add dialog to insert item
-            motionViewModel.insertItem(MotionItem("45","nameI","dateII"))
-            motionAdapter?.notifyItemInserted(6)
+            motionViewModel?.insertItem(MotionItem("45","nameI","dateII"),0)
+            motionAdapter?.notifyItemInserted(0)
 
         }
 
     }
 
+    override fun onRemoveItem(position: Int, motionItem: MotionItem?) {
+        motionViewModel?.removeItem(motionItem,position)
+    }
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
         return super.onCreateView(name, context, attrs)
     }
+
+
 }
