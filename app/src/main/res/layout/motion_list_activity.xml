@@ -3,11 +3,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
-
-    >
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
     
     <data>
+
+        <variable
+            name="viewModel"
+            type="com.archeticture.flora.lanaapp.motion.viewmodel.MotionViewModel" />
         <variable
             name="motionData"
             type="com.archeticture.flora.lanaapp.motion.model.MotionDataView" />
@@ -28,7 +30,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+
+   <ImageView
         android:contentDescription="@string/title_itemdetail_list"
         android:id="@+id/imageView"
         android:layout_width="180dp"

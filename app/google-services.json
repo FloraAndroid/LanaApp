@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "408015911448",
+    "firebase_url": "https://lanaapp-8c7c2.firebaseio.com",
+    "project_id": "lanaapp-8c7c2",
+    "storage_bucket": "lanaapp-8c7c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408015911448:android:2548e87089923c1288a16d",
+        "android_client_info": {
+          "package_name": "com.archeticture.flora.lanaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408015911448-rdbsn33d3gr5koggiq3fs25khqvjuh83.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwdtgQ3n0M8WUcY-1Xr1BiHK_IuzfepJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "408015911448-rdbsn33d3gr5koggiq3fs25khqvjuh83.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

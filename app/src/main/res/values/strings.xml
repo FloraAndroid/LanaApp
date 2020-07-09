@@ -2,4 +2,7 @@
     <string name="app_name">LanaApp</string>
     <string name="title_itemdetail_list">Items</string>
     <string name="title_itemdetail_detail">ItemDetail Detail</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>

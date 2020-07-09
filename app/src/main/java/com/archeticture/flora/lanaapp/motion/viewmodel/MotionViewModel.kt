@@ -9,11 +9,7 @@ import com.archeticture.flora.lanaapp.motion.model.MotionDataView
 import com.archeticture.flora.lanaapp.motion.model.MotionItem
 
 class MotionViewModel(): ViewModel() {
-
-
     val motionDataLive=MutableLiveData<MotionDataView>()
-
-
 
     fun removeItem(motionItem: MotionItem?,position: Int){
         motionDataLive.value?.list?.removeAt(position)
@@ -32,14 +28,11 @@ class MotionViewModel(): ViewModel() {
         for (i in 0..88){
             list.add(
                 MotionItem("$i",
-                    "name hghjhj$i",
+                    "name ge$i",
                     "date $i",BitmapFactory.decodeResource(context.resources,R.drawable.itemnails))
             )
         }
         val motionDataView=MotionDataView(headerItem,list)
         motionDataLive.postValue(motionDataView)
-
     }
-
-
 }
