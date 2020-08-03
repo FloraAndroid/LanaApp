@@ -2,6 +2,7 @@ package com.archeticture.flora.lanaapp.motion.model
 
 import android.util.Log
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -17,10 +18,11 @@ data class UserInfo(var name:String, var phone:String, var dateO:String) {
 
     }
 
-     fun createUser(name: String, mobile: String) {
+     fun createUser() {
          dbReference = FirebaseDatabase.getInstance().getReference("users")
-        val clientInfo =UserInfo (name, mobile,dateO)
-        dbReference.child(mobile).setValue(clientInfo).addOnSuccessListener {
+        val clientInfo =UserInfo (name, phone,dateO)
+        dbReference.child(phone).setValue(clientInfo).addOnSuccessListener {
+
            Log.d(Companion.TAG,"create user onSuccess")
         }.addOnCanceledListener {
             Log.d(Companion.TAG,"create user onCancel")

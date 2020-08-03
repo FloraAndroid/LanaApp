@@ -5,7 +5,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.archeticture.flora.lanaapp.motion.MotionListActvity
+import com.archeticture.flora.lanaapp.motion.MotionListActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +16,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         this.startActivity(Intent(this,
-            MotionListActvity::class.java))
+            MotionListActivity::class.java))
     }
 }

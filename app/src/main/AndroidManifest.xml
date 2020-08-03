@@ -16,7 +16,8 @@
         <activity
             android:name=".motion.TabbedActivity"
             android:label="@string/title_activity_tabbed"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".detailSide.ItemDetailListActivity"
             android:label="@string/title_itemdetail_list"
@@ -30,7 +31,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.archeticture.flora.lanaapp.detailSide.ItemDetailListActivity" />
         </activity>
-        <activity android:name=".motion.MotionListActvity" />
+        <activity android:name=".motion.MotionListActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/SplashCold">

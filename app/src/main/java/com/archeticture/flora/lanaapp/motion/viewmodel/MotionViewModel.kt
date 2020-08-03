@@ -29,7 +29,8 @@ class MotionViewModel(): ViewModel() {
             list.add(
                 MotionItem("$i",
                     "name ge$i",
-                    "date $i",BitmapFactory.decodeResource(context.resources,R.drawable.itemnails))
+                    "date $i",
+                    BitmapFactory.decodeResource(context.resources,R.drawable.itemnails))
             )
         }
         val motionDataView=MotionDataView(headerItem,list)
