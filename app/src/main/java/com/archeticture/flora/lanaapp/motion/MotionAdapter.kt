@@ -3,6 +3,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 import com.archeticture.flora.lanaapp.databinding.MotionItemLayoutBinding
 import com.archeticture.flora.lanaapp.motion.model.MotionItem
 
@@ -29,7 +30,6 @@ class MotionAdapter(var list:ArrayList<MotionItem>?,val motionItemListener: Moti
 
         val inflater = LayoutInflater.from(parent.context)
         val binding = MotionItemLayoutBinding.inflate(inflater)
-
         return ViewHolder(binding)
     }
 
@@ -40,6 +40,7 @@ class MotionAdapter(var list:ArrayList<MotionItem>?,val motionItemListener: Moti
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(list?.get(position))
+       //holder.motionItemLayoutBinding.imgMotionItem.load("")
         holder.motionItemLayoutBinding.removeBtnMotion.setOnClickListener {
             Log.d(TAG,"position $position")
             Log.d(TAG,"adapter position ${holder.adapterPosition}")

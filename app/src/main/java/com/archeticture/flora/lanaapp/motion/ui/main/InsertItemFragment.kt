@@ -57,7 +57,18 @@ class InsertItemFragment : Fragment() {
             datePickerDialog = DatePickerDialog(
                 it,
                 OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                    editDate.setText("$dayOfMonth / ${(monthOfYear + 1)} / $year")
+                    //var monthOfYearSt:String=(monthOfYear+1).toString()
+                    val monthOfYearSt=when{
+                        monthOfYear+1<10->"0${monthOfYear+1}"
+                        else->"${monthOfYear+1}"
+                    }
+
+                    val dayOfMonthSt=when{
+                        dayOfMonth<10->"0${dayOfMonth}"
+                        else->"${dayOfMonth}"
+                    }
+
+                    editDate.setText("$dayOfMonthSt / ${(monthOfYearSt)} / $year")
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
@@ -83,7 +94,7 @@ class InsertItemFragment : Fragment() {
         var floatBtn = view.findViewById<FloatingActionButton>(R.id.insertAddButton)
         floatBtn.setOnClickListener {
             var userInfo = UserInfo(inputNameEdit.text.toString(), inputPhone.text.toString(),
-            "$editDate $editHour")
+            "${editDate.text.toString()} ${editHour.text.toString()}")
             userInfo.createUser()
 
         }

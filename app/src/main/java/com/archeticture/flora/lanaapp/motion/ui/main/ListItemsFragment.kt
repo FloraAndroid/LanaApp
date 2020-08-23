@@ -1,14 +1,15 @@
 package com.archeticture.flora.lanaapp.motion.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.archeticture.flora.lanaapp.R
+import com.archeticture.flora.lanaapp.retrofit.view.TestActivity
 
 /**
  * A placeholder fragment containing a simple view.
@@ -24,15 +25,14 @@ class ListItemsFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.motion_list_layout, container, false)
-      //  val textView: TextView = root.findViewById(R.id.section_label)
-//        pageViewModel.text.observe(viewLifecycleOwner, Observer<String> {
-//            textView.text = it
-//        })
+        val imageView:ImageView=root.findViewById(R.id.imageView)
+        imageView.setOnClickListener {
+            startActivity(Intent(activity,
+                TestActivity::class.java))
+        }
         return root
     }
 

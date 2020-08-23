@@ -7,18 +7,18 @@
     <data>
 
         <variable
-            name="motionItem"
-            type="com.archeticture.flora.lanaapp.motion.model.MotionItem" />
+            name="topItem"
+            type="com.archeticture.flora.lanaapp.retrofit.models.TopItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintParent"
+        android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardMotionItem"
+            android:id="@+id/cardItem"
             android:layout_width="70dp"
             android:layout_height="70dp"
             app:cardCornerRadius="37dp"
@@ -28,63 +28,44 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imgMotionItem"
+                android:id="@+id/imgItem"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/title_itemdetail_list"
                 android:src="@drawable/general_nails"
-                bind:imageBitmap="@{motionItem.img}"
-
-
+                bind:imageBitmap="@{topItem.photo}"
+                bind:imageUrl="@{topItem.uriPhoto}"
                 />
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/txtMotionTitle"
+            android:id="@+id/nameItem"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:gravity="start"
             android:padding="5dp"
             android:singleLine="false"
-            android:text="@{motionItem.name}"
+            android:text="@{topItem.name}"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@id/cardMotionItem"
-            app:layout_constraintTop_toTopOf="@id/cardMotionItem"
+            app:layout_constraintLeft_toRightOf="@id/cardItem"
+            app:layout_constraintTop_toTopOf="@id/cardItem"
             tools:text="iiiiiihkjhjkjj" />
 
         <TextView
-            android:id="@+id/txtMotionDate"
+            android:id="@+id/descriptionItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="@{motionItem.date}"
+            android:text="@{topItem.description}"
             android:textColor="@android:color/black"
             android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@id/cardMotionItem"
-            app:layout_constraintLeft_toRightOf="@id/cardMotionItem"
-            app:layout_constraintTop_toBottomOf="@id/txtMotionTitle"
+            app:layout_constraintBottom_toBottomOf="@id/cardItem"
+            app:layout_constraintLeft_toRightOf="@id/cardItem"
+            app:layout_constraintTop_toBottomOf="@id/cardItem"
             tools:text="jddjdhdh" />
 
-        <TextView
-            android:id="@+id/txtMotionHour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:text="5:00"
-            app:layout_constraintLeft_toRightOf="@id/txtMotionDate"
-            app:layout_constraintBaseline_toBaselineOf="@+id/txtMotionDate"
-            app:layout_constraintRight_toRightOf="parent" />
 
-        <ImageView
-            android:id="@+id/remove_btn_motion"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@android:color/transparent"
-            android:src="@android:drawable/ic_notification_clear_all"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cardMotionItem" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
